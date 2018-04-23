@@ -1,0 +1,51 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MvvmChart"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="MvvmChart.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="399" Width="656">
+    <Grid>
+        <!--region ChartView-->
+        <dxc:ChartControl x:Name="chart" 
+                          SelectionMode="Extended" 
+                          SeriesSelectionMode="Series" 
+                          SelectedItem="{Binding Mode=TwoWay, Path=SelectedWeather}">
+            <dxc:XYDiagram2D SeriesItemsSource="{Binding Weather}">
+                <dxc:XYDiagram2D.SeriesItemTemplateSelector>
+                    <local:WeatherTemplateSelector>
+                        <local:WeatherTemplateSelector.MinMaxSeriesTemplate>
+                            <DataTemplate>
+                                <dxc:RangeAreaSeries2D DataSource="{Binding Data}"
+                                               ArgumentDataMember="Date"
+                                               ValueDataMember="MinValue"
+                                               Value2DataMember="MaxValue"
+                            Marker1Visible="False"
+                                               Marker2Visible="False"
+                                               Transparency="0.7"
+                                               CrosshairLabelPattern="{}{S} Day Temperature:&#10;Min: {V1}°C&#10;Max: {V2}°C">
+                                    <dxc:RangeAreaSeries2D.SeriesAnimation>
+                                        <dxc:Area2DStretchFromNearAnimation Duration="0:0:1.200"/>
+                                    </dxc:RangeAreaSeries2D.SeriesAnimation>
+                                </dxc:RangeAreaSeries2D>
+                            </DataTemplate>
+                        </local:WeatherTemplateSelector.MinMaxSeriesTemplate>
+                        <local:WeatherTemplateSelector.AvgSeriesTemplate>
+                            <DataTemplate>
+                                <dxc:LineSeries2D DataSource="{Binding Data}"
+                                               ArgumentDataMember="Date"
+                                               ValueDataMember="AvgValue"
+                                               MarkerVisible="True"
+                                               CrosshairLabelPattern="{}{S} Day Temperature: Avg: {V1}°C">
+                                </dxc:LineSeries2D>
+                            </DataTemplate>
+                        </local:WeatherTemplateSelector.AvgSeriesTemplate>
+                    </local:WeatherTemplateSelector>
+                </dxc:XYDiagram2D.SeriesItemTemplateSelector>
+            </dxc:XYDiagram2D>
+        </dxc:ChartControl>
+        <!--region ChartView-->
+    </Grid>
+</Window>
