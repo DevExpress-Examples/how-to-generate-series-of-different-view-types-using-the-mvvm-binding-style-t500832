@@ -28,7 +28,7 @@ Note that you can bind secondary axes and custom labels using the same approach.
 
 [Chart for WPF - Use the MVVM Binding Style to Generate Series of an Identical View Type](https://github.com/DevExpress-Examples/wpf-charts-create-multiple-series-of-identical-view-mvvm)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-generate-series-of-different-view-types-using-the-mvvm-binding-style-t500832&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-generate-series-of-different-view-types-using-the-mvvm-binding-style-t500832&~~~was_helpful=no)
 
